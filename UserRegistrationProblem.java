@@ -39,11 +39,11 @@ public class UserRegistrationProblem {
 		System.out.println(b);
 	}
 
-	// UC-6:- As a User need to follow pre-defined Password rules. Rule-2:- Should have at least 1 Upper Case.
+	//UC-7:- As a User need to follow predefined Password rules. Rule-3:- Should have at least 1 numeric number in the password
 	public static void passwordValidation() {
 		System.out.println("Enter Password");
 		String password = input.nextLine();
-		boolean b = Pattern.matches("^(?=.*[A-Z])[A-Za-z0-9].{8,}$", password);
+		boolean b = Pattern.matches("^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8,}$", password);
 		System.out.println(b);
 	}
 
