@@ -23,11 +23,20 @@ public class UserRegistrationProblem {
 		System.out.println(b);
 	}
 
+	// UC-3:- As a User need to enter a valid email.
+	public static void emailValidation() {
+		System.out.println("Enter Email");
+		String email = input.nextLine();
+		boolean b = Pattern.matches("^(.+)@(\\S+)$", email);
+		System.out.println(b);
+	}
+
 	public static void main(String[] args) {
 
 		System.out.println("\t WELCOME TO USER REGISTRATION PROBLEM \n");
 
 		firstNameValidation();
 		lastNameValidation();
+		emailValidation();
 	}
 }
