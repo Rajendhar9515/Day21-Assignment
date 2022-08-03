@@ -39,6 +39,14 @@ public class UserRegistrationProblem {
 		System.out.println(b);
 	}
 
+	// UC-5:- As a User need to follow preSdefined Password rules. RULE-1:- minimum 8 Characters.
+	public static void passwordValidation() {
+		System.out.println("Enter Password");
+		String password = input.nextLine();
+		boolean b = Pattern.matches("^[A-Za-z0-9]{8,}$", password);
+		System.out.println(b);
+	}
+
 	public static void main(String[] args) {
 
 		System.out.println("\t WELCOME TO USER REGISTRATION PROBLEM \n");
@@ -47,5 +55,6 @@ public class UserRegistrationProblem {
 		lastNameValidation();
 		emailValidation();
 		mobileNumberValidation();
+		passwordValidation();
 	}
 }
