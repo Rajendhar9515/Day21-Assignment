@@ -47,6 +47,14 @@ public class UserRegistrationProblem {
 		System.out.println(b);
 	}
 
+	// UC-9:- Should clear all email samples provided separately
+	public static void allEmailSampleValidation() {
+		System.out.println("Enter Your All Email Samples");
+		String email = input.nextLine();
+		boolean b = Pattern.matches("^[a-zA-Z0-9.+_-]+[@][a-zA-Z0-9]+[.]co(m|.in)$", email);
+		System.out.println(b);
+	}
+
 	public static void main(String[] args) {
 
 		System.out.println("\t WELCOME TO USER REGISTRATION PROBLEM \n");
@@ -56,5 +64,6 @@ public class UserRegistrationProblem {
 		emailValidation();
 		mobileNumberValidation();
 		passwordValidation();
+		allEmailSampleValidation();
 	}
 }
