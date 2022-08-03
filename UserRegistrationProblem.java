@@ -31,6 +31,14 @@ public class UserRegistrationProblem {
 		System.out.println(b);
 	}
 
+	// UC-4:- As a User need to follow predefined Mobile Format.
+	public static void mobileNumberValidation() {
+		System.out.println("Enter Mobile Number");
+		String num = input.nextLine();
+		boolean b = Pattern.matches("^[0-9]{2}[0-9]{10}", num);
+		System.out.println(b);
+	}
+
 	public static void main(String[] args) {
 
 		System.out.println("\t WELCOME TO USER REGISTRATION PROBLEM \n");
@@ -38,5 +46,6 @@ public class UserRegistrationProblem {
 		firstNameValidation();
 		lastNameValidation();
 		emailValidation();
+		mobileNumberValidation();
 	}
 }
