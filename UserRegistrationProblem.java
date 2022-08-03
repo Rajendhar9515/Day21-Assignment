@@ -15,10 +15,19 @@ public class UserRegistrationProblem {
 		System.out.println(b);
 	}
 
+	// UC-2 :- As a User need to enter a valid Last Name.
+	public static void lastNameValidation() {
+		System.out.println("Enter last Name");
+		String lastName = input.nextLine();
+		boolean b = Pattern.matches("^[A-Z]{1}[a-z]{2,}$", lastName);
+		System.out.println(b);
+	}
+
 	public static void main(String[] args) {
 
 		System.out.println("\t WELCOME TO USER REGISTRATION PROBLEM \n");
 
 		firstNameValidation();
+		lastNameValidation();
 	}
 }
