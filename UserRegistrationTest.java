@@ -7,7 +7,7 @@ import org.junit.Test;
 
 public class UserRegistrationTest {
 	UserRegistrationProblem uspTest;
-
+ 
 	@Before
 	public void classObject() {
 		uspTest = new UserRegistrationProblem();
