@@ -1,69 +1,66 @@
-package com.bridgelabz.regex;
+package com.bridgelabz;
 
-import java.util.Scanner;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class UserRegistrationProblem {
 
-	static Scanner input = new Scanner(System.in);
+	// UC-1 :- As a User need to enter a valid First Name. 
+	public static boolean firstNameValidation(String first_name) {
 
-	// UC-1 :- As a User need to enter a valid First Name.
-	public static void firstNameValidation() {
-		System.out.println("Enter First Name");
-		String firstName = input.nextLine();
-		boolean b = Pattern.matches("^[A-Z]{1}[a-z]{2,}$", firstName);
-		System.out.println(b);
+		String firstNameRegex = "^[A-Z][A-Z a-z]{3,}$"; // first character is Upper case an remaining all either Upper or Lower
+
+		Pattern pattern = Pattern.compile(firstNameRegex);
+
+		Matcher matcher = pattern.matcher(first_name);
+
+		return matcher.matches();
 	}
 
-	// UC-2 :- As a User need to enter a valid Last Name.
-	public static void lastNameValidation() {
-		System.out.println("Enter last Name");
-		String lastName = input.nextLine();
-		boolean b = Pattern.matches("^[A-Z]{1}[a-z]{2,}$", lastName);
-		System.out.println(b);
+	// UC-2 :- As a User need to enter a valid Last Name. 
+	public static boolean lastNameValidation(String last_name) {
+
+		String lastNameRegex = "^[A-Z][A-Z a-z]{3,}$"; // first character is Upper case an remaining all either Upper or Lower
+
+		Pattern pattern = Pattern.compile(lastNameRegex);
+
+		Matcher matcher = pattern.matcher(last_name);
+
+		return matcher.matches();
 	}
 
-	// UC-3:- As a User need to enter a valid email.
-	public static void emailValidation() {
-		System.out.println("Enter Email");
-		String email = input.nextLine();
-		boolean b = Pattern.matches("^(.+)@(\\S+)$", email);
-		System.out.println(b);
+	// UC-9:- Should clear all email samples provided separately. 
+	public static boolean emailValidation(String email) {
+
+		String emailRegex = "^[\\w+-]+(\\.[\\w+-]+)*@[\\w]+(\\.[\\w]+)?(?=(\\.[A-Za-z_]{2,3}$|\\.[a-zA-Z]{2,3}$)).*$"; // UC-9:-All email validations using regular expressions.
+		
+		Pattern pattern = Pattern.compile(emailRegex);
+		
+		Matcher matcher = pattern.matcher(email);
+
+		return matcher.matches();
 	}
 
-	// UC-4:- As a User need to follow predefined Mobile Format.
-	public static void mobileNumberValidation() {
-		System.out.println("Enter Mobile Number");
-		String num = input.nextLine();
-		boolean b = Pattern.matches("^[0-9]{2}[0-9]{10}", num);
-		System.out.println(b);
+	// UC-4:- As a User need to follow pre defined Mobile Format. 
+	public static boolean mobileNumberValidation(String mobileNum) {
+
+		String mobileNumRegex = "^[0-9]{2}(\\s){1}[0-9]{10}$"; // example:- 91 XXXXXXXXXX mobile number format validation.
+
+		Pattern pattern = Pattern.compile(mobileNumRegex);
+		
+		Matcher matcher = pattern.matcher(mobileNum);
+
+		return matcher.matches();
 	}
 
-	// UC-8:- As a User need to follow predefined Password rules. Rule-4:- Has exactly 1 Special Character.
-	public static void passwordValidation() {
-		System.out.println("Enter Password");
-		String password = input.nextLine();
-		boolean b = Pattern.matches("^(?=.*[A-Z])(?=.*[0-9])(?=[\\w]*[\\W][\\w]*$)(?=.*[a-z]).{8,}$", password);
-		System.out.println(b);
-	}
+	// UC-8:- As a User need to follow pre-defined Password rules. Rule-4:- Has exactly 1 Special Character.
+	public static boolean passwordValidation(String password) {
+		String passwordRegex = "^(?=.*[A-Z])(?=.*[0-9])(?=[\\w]*[\\W][\\w]*$)(?=.*[a-z]).{8,}$"; // Rule-4:- Has exactly 1 Special Character.
 
-	// UC-9:- Should clear all email samples provided separately
-	public static void allEmailSampleValidation() {
-		System.out.println("Enter Your All Email Samples");
-		String email = input.nextLine();
-		boolean b = Pattern.matches("^[a-zA-Z0-9.+_-]+[@][a-zA-Z0-9]+[.]co(m|.in)$", email);
-		System.out.println(b);
-	}
+		Pattern pattern = Pattern.compile(passwordRegex);
 
-	public static void main(String[] args) {
+		Matcher matcher = pattern.matcher(password);
 
-		System.out.println("\t WELCOME TO USER REGISTRATION PROBLEM \n");
-
-		firstNameValidation();
-		lastNameValidation();
-		emailValidation();
-		mobileNumberValidation();
-		passwordValidation();
-		allEmailSampleValidation();
+		return matcher.matches();
 	}
 }
