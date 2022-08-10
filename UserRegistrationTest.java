@@ -50,14 +50,14 @@ public class UserRegistrationTest {
 
 	@Test
 	public void given_email__extpected_as_true() throws UserRegistrationException {
-		boolean output = uspTest.emailValidation("vemula.rajendhar1@gmail.com");
+		boolean output = uspTest.emailValidation("vemulrajendhar1@gmail.com");
 		assertEquals(true, output);
 	}
 
 	@Test
 	public void given_email__extpected_as_false() {
 		try {
-			boolean output = uspTest.emailValidation("vemula.rajendhar1@.gmail.com.com");
+			boolean output = uspTest.emailValidation("rajendhar@.gmail.com.com.");
 			assertEquals(true, output);
 		} catch (UserRegistrationException ex) {
 			ex.printStackTrace();
@@ -66,14 +66,14 @@ public class UserRegistrationTest {
 
 	@Test
 	public void given_mobile_number_expected_as_true() throws UserRegistrationException {
-		boolean output = uspTest.mobileNumberValidation("91 8591234562");
+		boolean output = uspTest.mobileNumberValidation("91 4532324523");
 		assertEquals(true, output);
 	}
 
 	@Test
 	public void given_mobile_number_expected_as_false() {
 		try {
-			boolean output = uspTest.mobileNumberValidation("918591234562");
+			boolean output = uspTest.mobileNumberValidation("914532324523");
 			assertEquals(false, output);
 		} catch (UserRegistrationException ex) {
 			ex.printStackTrace();
@@ -82,14 +82,14 @@ public class UserRegistrationTest {
 
 	@Test
 	public void given_password_expected_as_true() throws UserRegistrationException {
-		boolean output = uspTest.passwordValidation("Rajendhar123@");
+		boolean output = uspTest.passwordValidation("Rajendhar12@");
 		assertEquals(true, output);
 	}
 
 	@Test
 	public void given_password_expected_as_false() {
 		try {
-			boolean output = uspTest.passwordValidation("Rajendhar$l123@");
+			boolean output = uspTest.passwordValidation("Raja$l123@");
 			assertEquals(false, output);
 		} catch (UserRegistrationException ex) {
 			ex.printStackTrace();
